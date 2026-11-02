@@ -1,0 +1,63 @@
+@import "tailwindcss";
+
+@theme {
+  --color-ink: #05070b;
+  --color-coal: #0a0f16;
+  --color-panel: #0e1620;
+  --color-line: #1e2e3d;
+  --color-bone: #e8f4f8;
+  --color-fog: #9fb3be;
+  --color-dim: #64748b;
+  --color-amber: #00e5ff;
+  --color-amber-deep: #00b8cc;
+  --color-clay: #ff5c7a;
+  --color-lime: #c8ff2e;
+  --font-display: var(--font-space), system-ui, sans-serif;
+  --font-sans: var(--font-manrope), system-ui, sans-serif;
+  --font-mono: var(--font-jetbrains), ui-monospace, monospace;
+}
+
+html { scroll-behavior: smooth; }
+body { background: var(--color-ink); color: var(--color-bone); font-family: var(--font-sans); }
+::selection { background: var(--color-amber); color: #05070b; }
+
+/* Tech grid, not a gradient hero */
+.tech-grid {
+  background-image: linear-gradient(to right, rgba(0,229,255,0.07) 1px, transparent 1px), linear-gradient(to bottom, rgba(0,229,255,0.07) 1px, transparent 1px);
+  background-size: 44px 44px;
+}
+.scan::after {
+  content: "";
+  position: absolute; inset: 0; pointer-events: none;
+  background: repeating-linear-gradient(to bottom, transparent 0 3px, rgba(255,255,255,0.02) 3px 4px);
+}
+.grain::before {
+  content: ""; position: fixed; inset: -50%; z-index: 60; pointer-events: none; opacity: 0.04;
+  background-image: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='240' height='240'%3E%3Cfilter id='n'%3E%3CfeTurbulence type='fractalNoise' baseFrequency='0.9' numOctaves='2'/%3E%3C/filter%3E%3Crect width='100%25' height='100%25' filter='url(%23n)'/%3E%3C/svg%3E");
+  animation: grain 0.9s steps(4) infinite;
+}
+@keyframes grain { 0% { transform: translate(0,0); } 25% { transform: translate(-2%,1%); } 50% { transform: translate(1%,-2%); } 75% { transform: translate(-1%,2%); } 100% { transform: translate(0,0); } }
+
+.reveal { animation: rise 0.8s cubic-bezier(0.22,1,0.36,1) both; }
+@keyframes rise { from { opacity: 0; transform: translateY(18px); } to { opacity: 1; transform: translateY(0); } }
+.fade-in { animation: fade 0.6s ease both; }
+@keyframes fade { from { opacity: 0; } to { opacity: 1; } }
+
+/* Animated SVG line drawing */
+.draw { stroke-dasharray: 600; stroke-dashoffset: 600; animation: draw 2.4s ease forwards; }
+.draw-slow { stroke-dasharray: 600; stroke-dashoffset: 600; animation: draw 3.6s ease forwards 0.4s; }
+@keyframes draw { to { stroke-dashoffset: 0; } }
+.dot-move { animation: dotmove 2.4s ease forwards; offset-path: path("M 0 70 C 30 20, 60 55, 100 45 S 170 30, 200 25"); }
+@keyframes dotmove { from { offset-distance: 0%; opacity: 0; } to { offset-distance: 100%; opacity: 1; } }
+.pulse-dot { animation: pulse 1.6s ease-in-out infinite; }
+@keyframes pulse { 0%,100% { opacity: 1; transform: scale(1); } 50% { opacity: 0.4; transform: scale(0.7); } }
+.float { animation: floaty 5s ease-in-out infinite; }
+@keyframes floaty { 0%,100% { transform: translateY(0); } 50% { transform: translateY(-8px); } }
+.bar-grow { transform-origin: bottom; animation: bargrow 1s cubic-bezier(0.22,1,0.36,1) both; }
+@keyframes bargrow { from { transform: scaleY(0); } to { transform: scaleY(1); } }
+.marquee { animation: marquee 26s linear infinite; }
+@keyframes marquee { from { transform: translateX(0); } to { transform: translateX(-50%); } }
+.blink { animation: blink 1.2s steps(2) infinite; }
+@keyframes blink { 50% { opacity: 0; } }
+.ticker { animation: ticker 18s linear infinite; }
+@keyframes ticker { from { transform: translateX(100%); } to { transform: translateX(-100%); } }
