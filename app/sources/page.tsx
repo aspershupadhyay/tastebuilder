@@ -24,7 +24,7 @@ export default function Sources() {
         Research means peer-reviewed work. Platform means what Instagram, YouTube or TikTok have actually said.
         Practice means what experienced creators report, which is useful, but not proof.
         Platform signals and benchmarks change. If a number matters for a decision you are about to make,
-        check the platform's own creator page on that day.
+        check the platform&apos;s own creator page on that day.
       </p>
       <div className="mt-10 space-y-4">
         {SOURCES.map((s) => (
