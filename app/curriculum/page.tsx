@@ -26,7 +26,7 @@ export default function Curriculum() {
             <section key={ph.id}>
               <div className="rounded-2xl border border-amber bg-panel p-6">
                 <div className="flex flex-wrap justify-between gap-3">
-                  <h2 className="font-display text-3xl font-bold">PHASE {ph.id} // {ph.name}</h2>
+                  <h2 className="font-display text-3xl font-bold">PHASE {ph.id} {"//"} {ph.name}</h2>
                   <span className="font-mono text-xs text-dim">{phaseLessons.length} LESSONS • {mins} MIN • {ph.skill}</span>
                 </div>
                 <p className="mt-3 max-w-3xl leading-relaxed text-fog">{ph.goal}</p>

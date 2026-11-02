@@ -10,7 +10,7 @@ export async function generateStaticParams() {
 function Step({ n, title, children }: { n: string; title: string; children: React.ReactNode }) {
   return (
     <section className="mt-10 border-t border-line pt-8">
-      <h2 className="font-mono text-xs uppercase tracking-widest text-amber">Step {n} // {title}</h2>
+      <h2 className="font-mono text-xs uppercase tracking-widest text-amber">Step {n} {"//"} {title}</h2>
       <div className="mt-3">{children}</div>
     </section>
   );
@@ -49,7 +49,7 @@ export default async function LessonPage({ params }: { params: Promise<{ slug: s
       </Step>
       <Step n="05" title="Self-check, answer out loud">
         <ul className="space-y-2 leading-relaxed text-fog">
-          <li>1. What was the one decision that made this lesson's example work, or fail?</li>
+          <li>1. What was the one decision that made this lesson&apos;s example work, or fail?</li>
           <li>2. What would you cut first from the weak version, and why?</li>
           <li>3. How would you use this idea in your next video, in one sentence?</li>
         </ul>
